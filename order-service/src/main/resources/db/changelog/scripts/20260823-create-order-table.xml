@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+    <changeSet id="20260707-create-order-table" author="Ivan Kudryashov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="order"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="order">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="number" type="varchar"/>
+            <column name="total_price" type="number"/>
+            <column name="creation_date" type="date"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: classpath*:/db/changelog/scripts/20260823-create-order-table.xml
